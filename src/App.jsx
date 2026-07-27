@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'  
-import Navbar from
+import Navbar from './shared/Navbar'
 
 
 const App = () => {
