@@ -1,1 +1,153 @@
-@import "tailwindcss";
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.nav-brand {
+  color: #111827;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-link {
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-link.active {
+  color: #111827;
+  font-weight: 600;
+}
+
+.page {
+  padding: 24px 16px;
+}
+
+.home-page,
+.about-page,
+.contact-page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.home-page {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.section-heading,
+.page-title {
+  margin: 0;
+}
+
+.section-heading {
+  font-size: 24px;
+  color: #2563eb;
+}
+
+.page-title {
+  font-size: 22px;
+  color: #111827;
+}
+
+.section-subtitle {
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.paragraph {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.card {
+  width: 100%;
+  max-width: 720px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.simple-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #374151;
+}
+
+.form-input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-card {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  border-radius: 8px;
+  color: #065f46;
+}
+
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  padding: 6px 10px;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border-radius: 999px;
+}

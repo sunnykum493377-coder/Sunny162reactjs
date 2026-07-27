@@ -1,28 +1,40 @@
+// Homepage.jsx  — route: /
+// NO Navbar on this page (intentionally minimal)
+// Everything shown comes from myData — nothing is hardcoded
+
 import React from 'react'
-import { Link } from 'react-router-dom'
-import portfolioData from '../../Data/Portfolio'
+import { useNavigate } from 'react-router-dom'
+import myData from '../../Data/Portfolio'
 
 const Homepage = () => {
-  const profile = portfolioData[0]
+
+  // useNavigate lets us move to another page on button click
+  const navigate = useNavigate()
 
   return (
     <div style={styles.page}>
+
+      {/* Welcome heading */}
+      <h1 style={styles.welcome}>Welcome</h1>
+
+      {/* Name pulled from data file */}
+      <h2 style={styles.name}>Hi, I am {myData.name}</h2>
+
+      {/* Short bio — myData.shortBio is an array, so we loop over it */}
+      {myData.shortBio.map((line, index) => (
+        <p key={index} style={styles.bio}>{line}</p>
+      ))}
+
+      {/* Profile image inside a card */}
       <div style={styles.card}>
-        <div style={styles.textSection}>
-          <h1 style={styles.title}>Welcome</h1>
-          <h2 style={styles.name}>Hi, I am {profile.name}</h2>
-
-          {profile.bioLines.map((line, index) => (
-            <p key={index} style={styles.bio}>{line}</p>
-          ))}
-
-          <Link to="/about" style={styles.button}>Know More</Link>
-        </div>
-
-        <div style={styles.imageSection}>
-          <img src={profile.image} alt={profile.name} style={styles.image} />
-        </div>
+        <img src={myData.image} alt="profile" style={styles.image} />
       </div>
+
+      {/* Know More button — goes to /about when clicked */}
+      <button style={styles.button} onClick={() => navigate('/about')}>
+        Know More
+      </button>
+
     </div>
   )
 }
@@ -30,64 +42,52 @@ const Homepage = () => {
 const styles = {
   page: {
     minHeight: '100vh',
-    backgroundColor: '#f3f4f6',
     display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f3f4f6',
     padding: '20px',
     fontFamily: 'Arial, sans-serif',
   },
-  card: {
-    backgroundColor: 'white',
-    borderRadius: '16px',
-    padding: '24px',
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '20px',
-    maxWidth: '900px',
-    width: '100%',
-    boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-  },
-  textSection: {
-    flex: 1,
-    minWidth: '280px',
-  },
-  title: {
+  welcome: {
+    fontSize: '32px',
     color: '#2563eb',
-    marginBottom: '8px',
-    fontSize: '28px',
+    margin: '0 0 8px 0',
   },
   name: {
-    marginBottom: '12px',
     fontSize: '24px',
     color: '#111827',
+    margin: '0 0 16px 0',
   },
   bio: {
-    margin: '0 0 10px',
     color: '#4b5563',
-    lineHeight: 1.6,
+    margin: '4px 0',
+    fontSize: '16px',
   },
-  button: {
-    display: 'inline-block',
-    marginTop: '12px',
-    padding: '10px 16px',
-    backgroundColor: '#2563eb',
-    color: 'white',
-    textDecoration: 'none',
-    borderRadius: '8px',
-  },
-  imageSection: {
-    flex: 1,
-    minWidth: '240px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+  card: {
+    marginTop: '24px',
+    backgroundColor: 'white',
+    borderRadius: '12px',
+    padding: '16px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
   },
   image: {
-    width: '100%',
-    maxWidth: '260px',
-    borderRadius: '12px',
+    width: '180px',
+    height: '180px',
+    borderRadius: '8px',
     objectFit: 'cover',
+    display: 'block',
+  },
+  button: {
+    marginTop: '24px',
+    padding: '10px 28px',
+    backgroundColor: '#2563eb',
+    color: 'white',
+    border: 'none',
+    borderRadius: '8px',
+    fontSize: '16px',
+    cursor: 'pointer',
   },
 }
 

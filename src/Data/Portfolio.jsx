@@ -1,26 +1,20 @@
-// ============================================================
-//  PORTFOLIO DATA FILE
-//  All your personal info lives here — one place to update,
-//  every page reads from this file automatically.
-// ============================================================
+
 
 import profilePlaceholder from '../assets/profile-placeholder.svg'
 
 const myData = {
   // ── Basic Info ──────────────────────────────────────────
   name: 'Sunny Kumar',
-  tag: 'Full Stack Developer',   // shown in the navbar on About & Contact
+  tag: 'Full Stack Developer', 
 
-  // ── Home Page ───────────────────────────────────────────
-  // shortBio appears as 2–3 lines on the Home page
+
   shortBio: [
     'I build simple and useful web experiences.',
     'I enjoy solving DSA problems on LeetCode.',
     'I am always learning something new every day.',
   ],
 
-  // ── About Page ──────────────────────────────────────────
-  // fullBio appears as a longer paragraph in the About hero section
+  
   fullBio:
     'I am Sunny Kumar, a passionate Full Stack Developer based in India. ' +
     'I love turning ideas into real, working web applications. ' +
@@ -29,11 +23,9 @@ const myData = {
     'Outside of coding, I enjoy competitive programming and solving algorithmic challenges. ' +
     'I believe clean code and good design go hand in hand.',
 
-  // ── Profile Image ────────────────────────────────────────
+  
   image: profilePlaceholder,
 
-  // ── Skills ───────────────────────────────────────────────
-  // Each object is ONE skill category — rendered by SkillCard.jsx
   skills: [
     {
       category: 'Technical',
@@ -49,8 +41,7 @@ const myData = {
     },
   ],
 
-  // ── Projects ─────────────────────────────────────────────
-  // Each object is ONE project — rendered by ProjectCard.jsx
+ 
   projects: [
     {
       title: 'Portfolio Website',

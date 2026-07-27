@@ -1,22 +1,40 @@
+// Aboutpage.jsx  — route: /about
+//
+// This page has 4 parts:
+//   1. Navbar       — the shared top bar
+//   2. AbtHero      — the big bio paragraph
+//   3. SkillSection — skill cards (data passed as prop)
+//   4. ProjectSection — project cards (data passed as prop)
+//
+// myData is imported once here, then passed DOWN to child components as props
+// That is the React "data flow" — parent holds data, children receive it
+
 import React from 'react'
-import portfolioData from '../../Data/Portfolio'
+import myData from '../../Data/Portfolio'
+import Navbar from '../../shared/Navbar'
+import AbtHero from './AbtHero'
+import SkillSection from './SkillSection'
+import ProjectSection from './ProjectSection'
 
 const Aboutpage = () => {
-  const profile = portfolioData[0]
-
   return (
     <div style={styles.page}>
-      <div style={styles.card}>
-        <h1 style={styles.title}>About Me</h1>
-        <h2 style={styles.name}>{profile.name}</h2>
-        <p style={styles.bio}>{profile.fullbio}</p>
 
-        <h3 style={styles.subTitle}>Skills</h3>
-        <div style={styles.skillsWrap}>
-          {profile.skills.technical.map((skill, index) => (
-            <span key={index} style={styles.skill}>{skill}</span>
-          ))}
-        </div>
+      {/* 1. Navbar at the top */}
+      <Navbar />
+
+      {/* Wrap the rest in a centered container */}
+      <div style={styles.container}>
+
+        {/* 2. Hero — pass fullBio as a prop called "bio" */}
+        <AbtHero bio={myData.fullBio} />
+
+        {/* 3. Skills — pass the skills array as a prop */}
+        <SkillSection skills={myData.skills} />
+
+        {/* 4. Projects — pass the projects array as a prop */}
+        <ProjectSection projects={myData.projects} />
+
       </div>
     </div>
   )
@@ -25,48 +43,13 @@ const Aboutpage = () => {
 const styles = {
   page: {
     minHeight: '100vh',
-    backgroundColor: '#f9fafb',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '20px',
+    backgroundColor: '#f3f4f6',
     fontFamily: 'Arial, sans-serif',
   },
-  card: {
-    backgroundColor: 'white',
-    padding: '24px',
-    borderRadius: '16px',
-    maxWidth: '700px',
-    width: '100%',
-    boxShadow: '0 6px 18px rgba(0,0,0,0.08)',
-  },
-  title: {
-    color: '#2563eb',
-    marginBottom: '8px',
-  },
-  name: {
-    marginBottom: '10px',
-    color: '#111827',
-  },
-  bio: {
-    color: '#4b5563',
-    lineHeight: 1.6,
-    marginBottom: '16px',
-  },
-  subTitle: {
-    marginBottom: '8px',
-    color: '#111827',
-  },
-  skillsWrap: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '8px',
-  },
-  skill: {
-    backgroundColor: '#dbeafe',
-    color: '#1d4ed8',
-    padding: '6px 10px',
-    borderRadius: '999px',
+  container: {
+    maxWidth: '860px',
+    margin: '0 auto',
+    padding: '32px 20px',
   },
 }
 
